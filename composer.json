@@ -1,0 +1,58 @@
+{
+    "name": "mbolli/tempest-highlight-ron",
+    "description": "RON (Readable Object Notation) language support for tempest/highlight — parser-backed, role-aware highlighting of keys, values, numbers, literals, and structure.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "tempest/highlight": "^2.17",
+        "mbolli/php-ron": "^0.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mbolli\\TempestHighlightRon\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mbolli\\TempestHighlightRon\\Tests\\": "tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../php-ron",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "mbolli/php-ron": "0.1.0"
+                }
+            }
+        }
+    ],
+    "authors": [
+        {
+            "name": "Michael Bolli",
+            "email": "michael@zweiundeins.gmbh"
+        }
+    ],
+    "keywords": [
+        "ron",
+        "readable-object-notation",
+        "syntax-highlighting",
+        "tempest-highlight"
+    ],
+    "scripts": {
+        "test": "phpunit",
+        "before-commit": [
+            "vendor/bin/php-cs-fixer fix",
+            "vendor/bin/phpstan analyse",
+            "vendor/bin/phpunit"
+        ]
+    }
+}
