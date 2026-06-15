@@ -6,7 +6,7 @@
     "require": {
         "php": "^8.4",
         "tempest/highlight": "^2.17",
-        "mbolli/php-ron": "^0.1"
+        "mbolli/php-ron": "^0.1.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
@@ -23,18 +23,6 @@
             "Mbolli\\TempestHighlightRon\\Tests\\": "tests/"
         }
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../php-ron",
-            "options": {
-                "symlink": true,
-                "versions": {
-                    "mbolli/php-ron": "0.1.0"
-                }
-            }
-        }
-    ],
     "authors": [
         {
             "name": "Michael Bolli",
