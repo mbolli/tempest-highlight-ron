@@ -33,6 +33,24 @@ final class RonLanguageTest extends TestCase {
         );
     }
 
+    public function testV1EscapesStayInsideOneStringToken(): void {
+        // php-ron 0.5 treats a JSON escape as a single scanner atom and classifies
+        // before decoding, so `a\nb` is one string span and `tr\u0075e` is a string
+        // rather than the boolean literal. A comma-prefixed value is one span too.
+        self::assertSame(
+            [[0, 'keyword', 'msg'], [4, 'value', 'a\\nb']],
+            $this->tokens('msg a\\nb'),
+        );
+        self::assertSame(
+            [[0, 'keyword', 'msg'], [4, 'value', ',foo']],
+            $this->tokens('msg ,foo'),
+        );
+        self::assertSame(
+            [[0, 'keyword', 'k'], [2, 'value', 'tr\\u0075e']],
+            $this->tokens('k tr\\u0075e'),
+        );
+    }
+
     public function testBraceElidedRootObjectKeysAndValues(): void {
         self::assertSame(
             [
