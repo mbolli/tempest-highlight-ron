@@ -68,3 +68,7 @@ lenient — malformed RON never throws, it just highlights as much as it can cla
 ## License
 
 MIT
+
+## Maintainer
+
+Maintained by [Michael Bolli](https://github.com/mbolli) at [zwei und eins gmbh](https://zweiundeins.gmbh), Aarberg, Switzerland.
